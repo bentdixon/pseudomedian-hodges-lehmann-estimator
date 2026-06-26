@@ -1,0 +1,52 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pseudomedian"
+version = "0.1.0"
+description = "Pseudomedian (Hodges-Lehmann estimator) with bootstrap confidence intervals."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Benjamin Dixon", email = "btdixon@emory.edu" }]
+keywords = [
+    "statistics",
+    "pseudomedian",
+    "hodges-lehmann",
+    "bootstrap",
+    "confidence-interval",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Mathematics",
+]
+dependencies = [
+    "numpy>=1.22",
+    "scipy>=1.15",
+]
+
+[project.urls]
+Homepage = "https://github.com/btdixon/pseudomedian"
+Reference = "https://www.fharrell.com/post/aci/"
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pseudomedian"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "src/pseudomedian",
+    "README.md",
+    "LICENSE",
+]
